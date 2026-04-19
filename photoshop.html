@@ -90,16 +90,22 @@
     src="1photoshop.html"
     width="820"
     height="820"
-    tabindex="0">
+    tabindex="0"
+    style="pointer-events: auto;">
   </iframe>
 </div>
 
+<!-- FIX: iframe focus handling -->
 <script>
-  const frame = document.getElementById("paintFrame");
+const frame = document.getElementById("paintFrame");
 
-  frame.addEventListener("click", () => {
-    frame.focus();
-  });
+frame.addEventListener("load", () => {
+  frame.contentWindow.focus();
+});
+
+frame.addEventListener("click", () => {
+  frame.contentWindow.focus();
+});
 </script>
 
 </body>
