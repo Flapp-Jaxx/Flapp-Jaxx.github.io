@@ -2,94 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Photoshop App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P5.js Photoshop</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
     body {
-      margin: 0;
-      background: white;
+      background-color: #0b0b08;
+      color: #ffcc66;
+      font-family: 'Share Tech Mono', monospace;
     }
 
-    canvas {
-      display: block;
+    .navbar {
+      background: #0b0b08;
+      border-bottom: 1px solid #ffcc66;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #ffcc66 !important;
+    }
+
+    .flicker {
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%,19%,21%,100% { opacity: 1; }
+      20% { opacity: 0.4; }
+    }
+
+    iframe {
+      border: 1px solid #ffcc66;
+      background: black;
     }
   </style>
 </head>
 
 <body>
 
-<script>
+<!-- Navbar -->
 
-// ===== YOUR CODE (UNCHANGED) =====
+<nav class="navbar navbar-expand-lg">
 
-let tool = 1;
+  <div class="container">
 
-function setup() {
-  createCanvas(800, 800);
-  background(255);
-}
+    <a class="navbar-brand flicker" href="#">FLAPP_JAXX PORTFOLIO</a>
 
-function draw() {
-  if (mouseIsPressed) {
 
-    if (tool === 1) {
-      stroke(0);
-      line(mouseX, mouseY, pmouseX, pmouseY);
-    }
-    else if (tool === 2) {
-      noStroke();
-      fill(0);
-      rect(mouseX, mouseY, 40, 10);
-    }
-    else if (tool === 3) {
-      noFill();
-      stroke(255, 0, 0);
-      ellipse(mouseX, mouseY, 50);
-    }
-    else if (tool === 4) {
-      stroke(0, 150, 0);
-      line(mouseX, mouseY, mouseX, mouseY - random(20, 50));
-    }
-    else if (tool === 5) {
-      stroke(0, 0, 255);
-      point(mouseX + random(-10, 10), mouseY + random(-10, 10));
-    }
-    else if (tool === 6) {
-      stroke(200);
-      line(mouseX, 0, mouseX, height);
-      line(0, mouseY, width, mouseY);
-    }
-    else if (tool === 7) {
-      stroke(255);
-      strokeWeight(20);
-      line(mouseX, mouseY, pmouseX, pmouseY);
-      strokeWeight(1);
-    }
-    else if (tool === 8) {
-      fill(random(255), random(255), random(255));
-      noStroke();
-      ellipse(mouseX + random(-20, 20), mouseY + random(-20, 20), 10);
-    }
-    else if (tool === 9) {
-      fill(0);
-      textSize(12);
-      text("!", mouseX, mouseY);
-    }
-    else if (tool === 0) {
-      background(255);
-    }
-  }
-}
 
-function keyPressed() {
-  if (key >= '0' && key <= '9') {
-    tool = int(key);
-  }
-}
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav">
 
-</script>
+      <span style="color:#ffcc66;">☰</span>
+
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="nav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item"><a class="nav-link" href="glitch.html">[GLITCH]</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="meme.html">[MEME]</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="minecraft.html">[MINECRAFT]</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="print.html">[3D PRINT]</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="net.html">[NET ART]</a></li>
+
+	 <li class="nav-item"><a class="nav-link" href="profile.html">[P5.JS PROFILE]</a></li>
+
+	 <li class="nav-item"><a class="nav-link" href="index.html">[HOME]</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="sarcasm.html">[CONTACTS]</a></li>
+
+     </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- Title -->
+<section class="text-center py-4">
+  <h1 class="flicker">Drawing Software</h1>
+  <p>Press keys 0–9 to switch tools</p>
+</section>
+
+<!-- IFRAME (this loads the real app) -->
+<div class="container text-center">
+  <iframe 
+    src="photoshop.html"
+    width="820"
+    height="820">
+  </iframe>
+</div>
 
 </body>
 </html>
