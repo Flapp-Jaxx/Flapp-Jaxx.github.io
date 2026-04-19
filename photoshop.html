@@ -30,7 +30,7 @@
     }
 
     @keyframes flicker {
-      0%,19%,21%,100% { opacity: 1; }
+      0%, 19%, 21%, 100% { opacity: 1; }
       20% { opacity: 0.4; }
     }
 
@@ -41,7 +41,6 @@
       margin: 0 auto;
     }
 
-    /* helps iframe receive clicks cleanly */
     .canvas-container {
       padding-bottom: 40px;
     }
@@ -79,14 +78,16 @@
 <!-- Title -->
 <section class="text-center py-4">
   <h1 class="flicker">Drawing Software</h1>
-  <p>Click inside canvas, then press keys 0–9 to switch tools</p>
+  <p>
+    The purpose of my drawing software was to create a drawing tool that could make digital art reminiscent of memes online like wojaks and such. To accomplish this, I created brushes that made basic shapes and lines in varying color and line quality.
+  </p>
 </section>
 
 <!-- IFRAME -->
 <div class="container text-center canvas-container">
   <iframe 
     id="paintFrame"
-    src="photoshop.html"
+    src="1photoshop.html"
     width="820"
     height="820"
     tabindex="0">
@@ -94,7 +95,6 @@
 </div>
 
 <script>
-  // ✅ ensures iframe gets focus when clicked
   const frame = document.getElementById("paintFrame");
 
   frame.addEventListener("click", () => {
