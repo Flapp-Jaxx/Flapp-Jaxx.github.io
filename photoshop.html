@@ -13,6 +13,7 @@
       background-color: #0b0b08;
       color: #ffcc66;
       font-family: 'Share Tech Mono', monospace;
+      margin: 0;
     }
 
     .navbar {
@@ -36,6 +37,13 @@
     iframe {
       border: 1px solid #ffcc66;
       background: black;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* helps iframe receive clicks cleanly */
+    .canvas-container {
+      padding-bottom: 40px;
     }
   </style>
 </head>
@@ -43,66 +51,56 @@
 <body>
 
 <!-- Navbar -->
-
 <nav class="navbar navbar-expand-lg">
-
   <div class="container">
 
     <a class="navbar-brand flicker" href="#">FLAPP_JAXX PORTFOLIO</a>
 
-
-
     <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav">
-
       <span style="color:#ffcc66;">☰</span>
-
     </button>
 
-
-
     <div class="collapse navbar-collapse" id="nav">
-
       <ul class="navbar-nav ms-auto">
-
         <li class="nav-item"><a class="nav-link" href="glitch.html">[GLITCH]</a></li>
-
         <li class="nav-item"><a class="nav-link" href="meme.html">[MEME]</a></li>
-
         <li class="nav-item"><a class="nav-link" href="minecraft.html">[MINECRAFT]</a></li>
-
         <li class="nav-item"><a class="nav-link" href="print.html">[3D PRINT]</a></li>
-
         <li class="nav-item"><a class="nav-link" href="net.html">[NET ART]</a></li>
-
-	 <li class="nav-item"><a class="nav-link" href="profile.html">[P5.JS PROFILE]</a></li>
-
-	 <li class="nav-item"><a class="nav-link" href="index.html">[HOME]</a></li>
-
+        <li class="nav-item"><a class="nav-link" href="profile.html">[P5.JS PROFILE]</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">[HOME]</a></li>
         <li class="nav-item"><a class="nav-link" href="sarcasm.html">[CONTACTS]</a></li>
-
-     </ul>
-
+      </ul>
     </div>
 
   </div>
-
 </nav>
-
 
 <!-- Title -->
 <section class="text-center py-4">
   <h1 class="flicker">Drawing Software</h1>
-  <p>Press keys 0–9 to switch tools</p>
+  <p>Click inside canvas, then press keys 0–9 to switch tools</p>
 </section>
 
-<!-- IFRAME (this loads the real app) -->
-<div class="container text-center">
+<!-- IFRAME -->
+<div class="container text-center canvas-container">
   <iframe 
+    id="paintFrame"
     src="photoshop.html"
     width="820"
-    height="820">
+    height="820"
+    tabindex="0">
   </iframe>
 </div>
+
+<script>
+  // ✅ ensures iframe gets focus when clicked
+  const frame = document.getElementById("paintFrame");
+
+  frame.addEventListener("click", () => {
+    frame.focus();
+  });
+</script>
 
 </body>
 </html>
