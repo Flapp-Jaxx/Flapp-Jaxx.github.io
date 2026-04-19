@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>p5 Portrait</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+</head>
+<body>
+
+<script>
+function setup() {
+  createCanvas(600, 600);
+  background(200);
+
+  let c = color(245, 185, 160);
+
+  fill(c);
+  noStroke();
+  circle(250, 250, 255);
+
+  rect(230, 370, 55, 55);
+
+  fill(120, 0, 128);
+  rect(120, 420, 300, 300);
+
+  fill(0);
+  arc(200, 230, 80, 80, 5, PI + HALF_PI);
+  arc(320, 230, 80, 80, 5, PI + HALF_PI);
+
+  fill(220);
+  arc(250, 315, 80, 80, 0, PI + QUARTER_PI);
+
+  fill(101, 67, 33);
+
+  arc(200, 155, 200, 85, 2, PI + QUARTER_PI);
+
+  beginShape();
+  vertex(145, 210);
+  vertex(150, 175);
+  vertex(165, 145);
+  vertex(185, 125);
+  vertex(250, 115);
+  vertex(315, 125);
+  vertex(340, 150);
+  vertex(355, 195);
+  vertex(350, 220);
+  vertex(320, 205);
+  vertex(285, 198);
+  vertex(250, 195);
+  vertex(215, 198);
+  vertex(180, 205);
+  endShape(CLOSE);
+}
+</script>
+
+</body>
+</html>
